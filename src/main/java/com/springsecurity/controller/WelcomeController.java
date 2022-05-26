@@ -7,22 +7,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WelcomeController {
     @GetMapping
-    public String welcome(){
-
+    public String welcome() {
         return "Welcome to My Spring Boot Web API";
     }
+
     @GetMapping("/users")
-    @PreAuthorize("hasAnyRole('USER')")
+    //@PreAuthorize("hasAnyRole('USER')")
     public String users() {
         return "Authorized user";
     }
-    @PreAuthorize("hasAnyRole('ADMIN')")
+
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/admins")
     public String admin() {
         return "Authorized admin";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    //@PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/usersandadmins")
     public String userAndAdmin() {
         return "Authorized admin and user.";
